@@ -6,64 +6,52 @@
  <meta charset="utf-8" />
  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+	
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	
 	<script type="text/javascript" src="jquery.min.js"></script>
- </head>
+ 
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 	
 	<style>
-		.square{
+		#square1{
 			background-color:red;
-			width:400px;
-			height:400px;
-			position:relative;
-			left:500px;
-			margin-top:10px;
+			width:200px;
+			height:200px;
 		}
 		
-		#circle{
-			
-			background-color:green;
+		#square2{
+			background-color:yellow;
 			width:300px;
 			height:300px;
-			border-radius:150px;
-			position:relative;
-			left:200px;
 		}
-		
 	</style>
-	
-	
+ 
+ </head>
 	
  <body>
-	 <div id="circle"></div>
-	 
-	 <div class="square"></div>
-	 
-	 <div class="square"></div>
-	 
-	 <p>This is the text</p>
-	 
-	 <button id="faderOut">Click me to see the magic!</button>
+	 <div id=square1>
+		 
+		 <div id="drag"></div>
+		 
+	</div>
 	
-	 <button id="faderIn">Click me to see the magic!</button>
+	<div id=square2>
+		 
+		 <div id="drag"></div>
+		 
+	</div>
 	<script>
 		
-		$("#faderOut").click(function(){
-			
-			$("p").fadeOut("slow",function() {
+		$("#square1").draggable();
+		
+		$("#square2").droppable({
+			drop:function(ui,event){
 				
-				alert("faded out!!");
-				
-				});
-		
-		});
-		
-		$("#faderIn").click(function(){
+				$("#square2").css("background-color","black");
+			}
 			
-			$("p").fadeIn();
-		
 		});
-		
 	</script>
  </body>
 </html>
